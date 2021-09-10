@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center mb-5">Toute la collection</h1>
+
+    <div class="row">
+    
+        {% for product in products %}
+
+            <div class="card m-3" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h3> {{product.name}} </h3>
+                    <p class="card-text"> {{product.description}} </p>
+                </div>
+                <div class="card-footer"> {{product.price | amount}} </div>
+                <a href=" {{path('product_show', {'id': product.id} )}} " class="btn btn-danger">Voir le détail du produit</a>
+            </div>
+            
+        {% endfor %}
+    
+    </div>
+    
+
+{% endblock %}

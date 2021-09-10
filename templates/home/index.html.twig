@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+    <div class="mt-4">
+        <a href=" {{ path('product_index') }} " class="btn btn-danger">Entrer dans la boutique </a>
+    </div>
+
+    <h1 class="text-center">The Boutique App</h1>
+
+    <p class="text-center mt-5"><i class="fas fa-shopping-cart" style="font-size: 260px;"></i></p>
+
+    <div class="d-flex justify-content-center mt-4">
+        <a href=" {{ path('product_index') }} " class="btn btn-danger">Entrer dans la boutique </a>
+    </div>
+
+{% endblock %}

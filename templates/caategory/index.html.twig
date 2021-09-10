@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caategory index{% endblock %}
+
+{% block body %}
+    <h1>Categories</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>ImagePathUrl</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for caategory in caategories %}
+            <tr>
+                <td>{{ caategory.id }}</td>
+                <td>{{ caategory.name }}</td>
+                <td>
+                    <img src=" {{ asset( caategory.imagePathUrl)}} " style="height:300px;object-fit:contain;" alt="">
+                </td>
+                <td>
+                    <a href="{{ path('caategory_show', {'id': caategory.id}) }}">show</a>
+                    <a href="{{ path('caategory_edit', {'id': caategory.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('caategory_new') }}">Create new</a>
+{% endblock %}

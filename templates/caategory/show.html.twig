@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caategory{% endblock %}
+
+{% block body %}
+    <h1>Caategory</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ caategory.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ caategory.name }}</td>
+            </tr>
+            <tr>
+                <th>ImagePathUrl</th>
+                <td>
+                <img src="{{ asset(caategory.imagePathUrl) }}" style="height:300px;object-fit:contain;">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('caategory_index') }}">back to list</a>
+
+    <a href="{{ path('caategory_edit', {'id': caategory.id}) }}">edit</a>
+
+    {{ include('caategory/_delete_form.html.twig') }}
+{% endblock %}

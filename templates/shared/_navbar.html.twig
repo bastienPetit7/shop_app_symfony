@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <div class="container-fluid">
+    <a class="navbar-brand" href=" {{path('home')}} ">Accueil</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+      
+        <li class="nav-item">
+          <a class="nav-link" href=" {{ path('product_index')}} ">Page produit</a>
+        </li>
+        
+        {% if app.user %}
+
+            {% if app.user.roles[0] is same as "ROLE_ADMIN" %}
+
+                <li class="nav-item">
+                     <a class="nav-link" href=" {{ path('admin_home') }} ">Administration</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href=" {{ path('product_new') }} ">Ajouter un produit</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href=" {{ path('caategory_new') }} ">Ajouter une catégorie</a>
+                </li>
+            
+            {% endif %}
+        
+        <li class="nav-item">
+          <a class="nav-link" href=" {{ path('app_logout') }} ">Se déconnecter</a>
+        </li>
+
+        {% else %}
+            
+            <li class="nav-item">
+                <a class="nav-link" href=" {{ path('app_register') }} ">Créer un compte</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=" {{ path('app_login') }} ">Se connecter</a>
+            </li>
+
+        {% endif %}
+
+       
+        
+       
+      </ul>
+    </div>
+  </div>
+</nav>
